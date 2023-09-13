@@ -1,0 +1,23 @@
+{
+  "name": "prueba-tecnica",
+  "version": "1.0.0",
+  "description": "Prueba tecnica para Izertis",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "file": "cypress run --browser chrome --spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jusantamaria/PruebaTecnicaIZ.git"
+  },
+  "author": "Julian Santamaria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jusantamaria/PruebaTecnicaIZ/issues"
+  },
+  "homepage": "https://github.com/jusantamaria/PruebaTecnicaIZ#readme",
+  "devDependencies": {
+    "cypress": "^13.2.0"
+  }
+}
