@@ -8,6 +8,11 @@ describe('Verificar que la navegación del sitio web funcione correctamente', ()
         BasePage.aceptarCookies();
         BasePage.get.oyshoIcon().should('contain.text','Oysho');
     });
+
+    it('Verificar agregar un producto al carrito de compras correctamente', ()=>{
+        cy.contains('DEPORTE').click();
+        
+    });
     it('Verificar iniciar sesión correctamente', ()=>{
         BasePage.iniciarSesion();
         BasePage.get.loginPage().should('contain.text','Iniciar sesión');
@@ -16,6 +21,7 @@ describe('Verificar que la navegación del sitio web funcione correctamente', ()
         BasePage.enterPassword(the.data.valida.contraseña);
         BasePage.get.submitBtn().click();
         BasePage.get.loginIcon().should('have.class','oy-icon oy-icon--general oysho-icon-user-check');
+        cy.clearCookies();
     });
     it('Verificar intentar iniciar sesión con data incorrecta', ()=>{
         BasePage.iniciarSesion();
