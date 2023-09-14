@@ -1,0 +1,22 @@
+{
+	"data": {
+		"valida": {
+			"email": "julikq22@gmail.com",
+			"contraseña": "Julian123456"
+		},
+		"invalida": {
+			"contraseñaIncorrecta": "123456789"
+        }
+    },
+
+    "errorMsg": {
+		"error": "La combinación de usuario y contraseña no es correcta."
+    },
+    "producto": {
+		"pantalon": "pantalon"
+    },
+    "endpoint": {
+        "principal": "https://www.oysho.com/",
+		"login": "https://www.oysho.com/es/logon"
+	}
+}
