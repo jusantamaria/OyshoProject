@@ -1,14 +1,14 @@
 # Ignora la carpeta node_modules
 node_modules
 
-# Ignora la carpeta README
+# Ignora el archivo README
 README.md 
 
-# Ignora las carpetas package-lock.json y package.json
+# Ignora los archivos package-lock.json y package.json
 
 package-lock.json
 package.json
 
 # Ignora la carpeta screenchots
 
-screenchots
+screenshots
