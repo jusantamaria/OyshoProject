@@ -2,7 +2,7 @@
 	"data": {
 		"valida": {
 			"email": "julikq22@gmail.com",
-			"contraseña": "Julian123456"
+			"codigo": "Julian123456"
 		},
 		"invalida": {
 			"contraseñaIncorrecta": "123456789"
@@ -16,7 +16,7 @@
 		"pantalon": "pantalon"
     },
     "endpoint": {
-        "principal": "https://www.oysho.com/",
+        "principal": "https://www.oysho.com/es/",
 		"login": "https://www.oysho.com/es/logon"
 	}
 }
