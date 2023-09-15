@@ -9,3 +9,12 @@ Cypress.Commands.add('goToPage', () =>{
         },
     });
 });
+
+Cypress.Commands.add('loginOysho', () =>{
+    cy.session('login',()=>{
+        cy.visit('https://www.oysho.com/logon/')
+        LoginPage.enterEmail(the.data.valida.email);
+        LoginPage.enterPassword(the.data.valida.codigo);
+        LoginPage.get.submitBtn().click();
+    })
+});

@@ -6,6 +6,7 @@ class loginPage{
         submitBtn:()=> cy.get('[data-testid="login-button"]'),
         loginIcon: ()=> cy.get('[data-testid="icon"].oy-icon.oysho-icon-user.oy-icon--general'),
         checkedLoginIcon: ()=> cy.get('[data-testid="icon"].oy-icon oy-icon--general oysho-icon-user-check'),
+        loginError: ()=> cy.get('span[class="login__error-message"]'),
 
     }
 

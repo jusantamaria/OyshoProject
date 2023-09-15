@@ -7,8 +7,8 @@ class basePage {
         acceptCookiesBtn: () => cy.get('#onetrust-accept-btn-handler'),
         noLocation: ()=> cy.get ('[data-testid="cancel-store"]'),
         buscador: ()=> cy.get('.header__search--title'),
-        buscadorPLP: ()=> cy.get('.x-list x-list--align-start'),
-        pantalonPLP: ()=> cy.get('[data-test="result-title]'),
+        buscadorPLP: ()=> cy.get('.x-recommendations__title x-margin--00'),
+        pantalonPLP: ()=> cy.get('.x-list'),
         filtros: ()=> cy.get('[data-testid="filters"]'),
         filtrosQty: ()=> cy.get('[data-testid="badge"]'),
         amarillo: ()=> cy.get('[id="check-colFilter-g-amarillos"]')
@@ -27,7 +27,7 @@ class basePage {
     }
 
     utilizarBuscador(type){
-        this.get.buscador().type(type);
+        this.get.buscador().type(type,{force:true});
     }
 
     pageListProductPantalon(){
@@ -38,7 +38,7 @@ class basePage {
         this.get.buscadorPLP();
     }
 
-    clickOnFilters(){
+    filtrar(){
         this.get.filtros().click();
         cy.contains('Precio ascendente').click();
         cy.scrollTo(0,750,{ensureScrollable: false});

@@ -15,14 +15,10 @@ describe('Verificar que la navegación del sitio web funcione correctamente', ()
         BasePage.get.oyshoIcon().should('contain.text','Oysho');
         BasePage.cancelLocation();
     });
-    it('"HAPPY PATH" Verificar iniciar sesión correctamente', ()=>{
-        LoginPage.iniciarSesion();
-        LoginPage.get.loginPage().should('contain.text','Iniciar sesión');
-        LoginPage.get.submitBtn().should('be.disabled');
-        LoginPage.enterEmail(the.data.valida.email);
-        LoginPage.enterPassword(the.data.valida.codigo);
-        // LoginPage.get.submitBtn().click();
-        // BasePage.get.checkedLoginIcon().should('be.visible').and('have.class','oy-icon oy-icon--general oysho-icon-user-check');
+    it('Verificar iniciar sesión correctamente',()=>{
+        cy.loginOysho();
+        BasePage.get.checkedLoginIcon().should('have.class','oy-icon oy-icon--general oysho-icon-user-check').and('be.visible');
+        cy.url().should('eq', the.endpoint.principal);
     });
     it('Verificar intentar iniciar sesión con data incorrecta', ()=>{
         LoginPage.iniciarSesion();
@@ -30,23 +26,29 @@ describe('Verificar que la navegación del sitio web funcione correctamente', ()
         LoginPage.get.submitBtn().should('be.disabled');
         LoginPage.enterEmail(the.data.valida.email);
         LoginPage.enterPassword(the.data.invalida.contraseñaIncorrecta);
-        LoginPage.get.submitBtn().click();
-        cy.contains(the.errorMsg.error).should('be.visible');
+        LoginPage.get.submitBtn().click({force:true});
+        LoginPage.get.loginError().should('contain.text','La combinación de usuario y contraseña no es correcta.');
     });
     it('verificar la usabilidad del buscador', ()=>{
-        BasePage.utilizarBuscador();
-        BasePage.get.buscadorPLP().should('contain.text','Quizás te interese')
+        BasePage.get.buscador().click();
         BasePage.utilizarBuscador(the.producto.pantalon);
-        BasePage.get.pantalonPLP().should('contain.text','pantalon')
+        BasePage.get.pantalonPLP().should('contain.text','pantalon');
     });
     it('Verificar la correcta usabilidad de los filtros', ()=>{
         cy.scrollTo(0,1000, {ensureScrollable: false});
         cy.contains('DEPORTE').click({force:true});
-        BasePage.clickOnFilters();
+        BasePage.filtrar();
         cy.contains('Aceptar').click();
-        BasePage.get.filtrosQty().should('contain','1')
+        BasePage.get.filtrosQty().should('contain','1');
+        cy.get('[data-testid="bullets"]').first().trigger('mouseover');
+        cy.get('[data-testid="tooltip-colors-text"]').first().should('have.text','AMARILLO');
     });
     it('Verificar agregar un producto al carrito de compras correctamente', ()=>{
-
+        cy.scrollTo(0,1000, {ensureScrollable: false});
+        cy.contains('DEPORTE').click({force:true});
+        cy.get('img').eq(4).click({force:true});
+        cy.get(':nth-child(2) > [data-testid="buttonName"]').click();
+        cy.get('[data-testid="addToCartButton"]').click();
+        cy.get('.shopcart-header__content > [data-testid="items-badge"] > [data-testid="badge"]').should('contain','1');
     }); 
 })
