@@ -1,5 +1,5 @@
-# PruebaTecnicaIZ
-Este es un repositorio utilizado para una prueba técnica de una consultora.
+# OyshoProject
+Este es un repositorio utilizado para una prueba técnica.
 
 En ésta Historia de Usuario se probará el sitio Web de Oysho.com. Un eCommerce de ropa deportiva para mujeres. Se evaluarán diferentes componentes de la página y su usabilidad utilizando Cypress como herramienta de automatización de pruebas.
 Ésta será una prueba técnica, por lo tanto, tendrá solo pruebas unitarias de algunos de sus componentes.
